@@ -15,7 +15,8 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/tokens.css">
@@ -35,7 +36,7 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo">
         <div class="logo-mark">⚡</div>
-        <span class="logo-text">Tech<span>Nest</span></span>
+        <span class="logo-text">Tech<span class="logo-accent">Nest</span></span>
       </a>
 
       <nav class="primary-nav">
@@ -81,17 +82,18 @@
     <div class="hero-banner">
       <div class="container" style="position:relative;z-index:1;width:100%;">
         <div class="hero-banner-content">
-          <div class="hero-tag">🚀 Just Arrived</div>
+          <div class="hero-tag">⚡ New Arrivals 2025</div>
           <h1 class="hero-title">
-            The Future of Tech<br>
-            <em>Starts Here</em>
+            The Future<br>
+            of <em>Tech</em><br>
+            Starts Here
           </h1>
           <p class="hero-subtitle">
             Explore our latest collection of laptops, phones, and accessories — curated for those who demand the best.
           </p>
           <div class="hero-actions">
             <a href="category.html?cat=laptops" class="btn btn-primary btn-lg">Shop Laptops</a>
-            <a href="category.html?cat=phones" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff;">View Phones</a>
+            <a href="category.html?cat=phones" class="btn btn-secondary btn-lg">View Phones</a>
           </div>
         </div>
       </div>
@@ -102,7 +104,7 @@
   <section class="section-sm">
     <div class="container">
       <div class="category-tiles">
-        <a href="category.html?cat=laptops" class="category-tile" data-category="laptops">
+        <a href="category.html?cat=laptops" class="category-tile" data-category="laptops" data-num="01">
           <div class="category-tile-icon">💻</div>
           <div class="category-tile-info">
             <h3>Laptops</h3>
@@ -110,7 +112,7 @@
           </div>
           <span class="category-tile-arrow">→</span>
         </a>
-        <a href="category.html?cat=phones" class="category-tile" data-category="phones">
+        <a href="category.html?cat=phones" class="category-tile" data-category="phones" data-num="02">
           <div class="category-tile-icon">📱</div>
           <div class="category-tile-info">
             <h3>Phones</h3>
@@ -118,7 +120,7 @@
           </div>
           <span class="category-tile-arrow">→</span>
         </a>
-        <a href="category.html?cat=accessories" class="category-tile" data-category="accessories">
+        <a href="category.html?cat=accessories" class="category-tile" data-category="accessories" data-num="03">
           <div class="category-tile-icon">🎧</div>
           <div class="category-tile-info">
             <h3>Accessories</h3>
@@ -126,7 +128,7 @@
           </div>
           <span class="category-tile-arrow">→</span>
         </a>
-        <a href="category.html?cat=deals" class="category-tile category-tile-accent" data-category="deals">
+        <a href="category.html?cat=deals" class="category-tile category-tile-accent" data-category="deals" data-num="04">
           <div class="category-tile-icon">⚡</div>
           <div class="category-tile-info">
             <h3>Today's Deals</h3>
@@ -142,7 +144,10 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Featured Products</h2>
+        <div>
+          <p class="section-label">Featured Products</p>
+          <h2 class="section-title">Top Picks</h2>
+        </div>
         <a href="category.html" class="section-link">View all →</a>
       </div>
       <div class="product-grid" id="featured-products">
@@ -156,12 +161,15 @@
   </section>
 
   <!-- ── PERSONALIZED RECOMMENDATIONS — Campaign Zone ── -->
-  <section class="section" style="background:var(--color-surface-2);">
+  <section class="section" style="background:var(--clr-surface);">
     <div class="container">
       <div data-p13n-zone="homepage-recs">
         <div class="recs-strip">
           <div class="recs-strip-header">
-            <h2 class="recs-strip-title">Recommended for You</h2>
+            <div>
+              <p class="section-label">Personalized</p>
+              <h2 class="recs-strip-title">Recommended for You</h2>
+            </div>
             <a href="category.html" class="section-link">View all →</a>
           </div>
           <div class="recs-grid" id="homepage-recs-grid">
@@ -223,7 +231,7 @@
       <div class="footer-brand">
         <a href="index.html" class="site-logo">
           <div class="logo-mark">⚡</div>
-          <span class="logo-text" style="font-size:var(--text-lg)">Tech<span>Nest</span></span>
+          <span class="logo-text" style="font-size:var(--text-lg)">Tech<span class="logo-accent">Nest</span></span>
         </a>
         <p>Your destination for premium tech. We carry only the products we'd buy ourselves.</p>
       </div>
@@ -257,9 +265,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2025 TechNest. All rights reserved.</span>
-      <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:#3a4860;">
-        SF Personalization SDK demo — <a href="https://ssjs30.com" style="color:var(--color-primary)">ssjs30.com</a>
-      </span>
+      <span>SF Personalization SDK demo — <a href="https://ssjs30.com">ssjs30.com</a></span>
     </div>
   </div>
 </footer>

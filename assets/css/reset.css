@@ -1,17 +1,26 @@
 /* ============================================================
-   RESET — minimal, modern
+   RESET — VOLT edition
    ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-text);
-  background: var(--color-bg);
+  color: var(--clr-text);
+  background: var(--clr-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img, video, svg { display: block; max-width: 100%; }
@@ -21,10 +30,78 @@ a { color: inherit; text-decoration: none; }
 button { cursor: pointer; font: inherit; border: none; background: none; }
 input, select, textarea { font: inherit; }
 ul, ol { list-style: none; }
-h1, h2, h3, h4, h5, h6 { line-height: 1.25; font-weight: var(--font-bold); }
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 700; }
 
-/* Focus visible */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--clr-accent);
   outline-offset: 2px;
 }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-bg); }
+::-webkit-scrollbar-thumb { background: var(--clr-surface-3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--clr-text-3); }
+
+/* ── Keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  from { background-position: -400px 0; }
+  to   { background-position:  400px 0; }
+}
+
+/* ── Skeleton loader ── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--clr-surface)   25%,
+    var(--clr-surface-2) 50%,
+    var(--clr-surface)   75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ── Toast ── */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border-2);
+  border-radius: var(--radius-md);
+  color: var(--clr-text);
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-lg);
+  animation: fadeUp 0.3s var(--ease-out);
+  max-width: 340px;
+}
+
+.toast.toast-success { border-color: rgba(180, 255, 60, 0.3); }
+.toast.toast-error   { border-color: rgba(255, 69,  96, 0.3); }

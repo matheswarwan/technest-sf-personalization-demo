@@ -1,60 +1,51 @@
 /* ============================================================
-   TOKENS — single source of truth for all design variables
+   TOKENS — VOLT design system variables
    ============================================================ */
 :root {
-  /* Brand */
-  --color-primary:        #0070d2;
-  --color-primary-hover:  #005fb2;
-  --color-primary-light:  #d8eaff;
-  --color-accent:         #ff6b35;
-  --color-success:        #2e844a;
-  --color-warning:        #f59e0b;
-  --color-error:          #c23934;
+  /* ── Color palette ── */
+  --clr-bg:           #08090f;
+  --clr-surface:      #0f1118;
+  --clr-surface-2:    #161b28;
+  --clr-surface-3:    #1d2336;
+  --clr-border:       rgba(255,255,255,0.06);
+  --clr-border-2:     rgba(255,255,255,0.12);
 
-  /* Surfaces (light default) */
-  --color-bg:             #f5f7fa;
-  --color-surface:        #ffffff;
-  --color-surface-2:      #f0f3f7;
-  --color-border:         #dde2e8;
-  --color-text:           #1a1f36;
-  --color-text-muted:     #637082;
-  --color-text-inverse:   #ffffff;
+  /* ── Accent colors ── */
+  --clr-accent:       #b4ff3c;
+  --clr-accent-dim:   rgba(180,255,60,0.10);
+  --clr-accent-glow:  rgba(180,255,60,0.22);
+  --clr-accent-2:     #ff4560;
+  --clr-accent-3:     #38c8ff;
 
-  /* Header */
-  --color-header-bg:      #0a0e1a;
-  --color-header-text:    #e8edf5;
-  --color-header-muted:   #8a9bb0;
+  /* ── Text ── */
+  --clr-text:         #eef2fc;
+  --clr-text-2:       #7a8aac;
+  --clr-text-3:       #3a4460;
 
-  /* Badges */
-  --color-badge-sale:         #fee2e2;
-  --color-badge-sale-text:    #c23934;
-  --color-badge-new:          #d1fae5;
-  --color-badge-new-text:     #065f46;
-  --color-badge-bestseller:   #fef3c7;
-  --color-badge-bestseller-text: #92400e;
-  --color-badge-toprated:     #ede9fe;
-  --color-badge-toprated-text: #5b21b6;
+  /* ── Typography ── */
+  --font-display:     'Syne', sans-serif;
+  --font-body:        'Instrument Sans', sans-serif;
+  --font-mono:        'Space Mono', monospace;
 
-  /* Typography */
-  --font-sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-  --font-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  /* ── Type scale ── */
+  --text-xs:    0.75rem;    /* 12px */
+  --text-sm:    0.8125rem;  /* 13px */
+  --text-base:  1rem;       /* 16px */
+  --text-lg:    1.125rem;   /* 18px */
+  --text-xl:    1.25rem;    /* 20px */
+  --text-2xl:   1.5rem;     /* 24px */
+  --text-3xl:   1.875rem;   /* 30px */
+  --text-4xl:   2.25rem;    /* 36px */
+  --text-5xl:   3rem;       /* 48px */
 
-  --text-xs:    0.75rem;   /* 12px */
-  --text-sm:    0.875rem;  /* 14px */
-  --text-base:  1rem;      /* 16px */
-  --text-lg:    1.125rem;  /* 18px */
-  --text-xl:    1.25rem;   /* 20px */
-  --text-2xl:   1.5rem;    /* 24px */
-  --text-3xl:   1.875rem;  /* 30px */
-  --text-4xl:   2.25rem;   /* 36px */
-  --text-5xl:   3rem;      /* 48px */
-
+  /* ── Font weights ── */
   --font-normal:   400;
   --font-medium:   500;
   --font-semibold: 600;
   --font-bold:     700;
+  --font-extrabold:800;
 
-  /* Spacing */
+  /* ── Spacing ── */
   --space-1:  0.25rem;
   --space-2:  0.5rem;
   --space-3:  0.75rem;
@@ -68,31 +59,60 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* Layout */
-  --max-width:        1280px;
-  --max-width-narrow: 900px;
-  --header-height:    64px;
-  --sidebar-width:    240px;
-
-  /* Borders & Radius */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  12px;
-  --radius-xl:  16px;
+  /* ── Border radii ── */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius-md:   6px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,.10), 0 2px 4px rgba(0,0,0,.06);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.08);
-  --shadow-card-hover: 0 8px 24px rgba(0,112,210,.15), 0 2px 6px rgba(0,0,0,.06);
+  /* ── Layout ── */
+  --header-h:   64px;
+  --container:  1300px;
 
-  /* Transitions */
-  --transition-fast:   150ms ease;
-  --transition-normal: 250ms ease;
-  --transition-slow:   400ms ease;
+  /* ── Motion ── */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   120ms;
+  --dur-base:   220ms;
+  --dur-slow:   380ms;
+  --dur-enter:  400ms;
 
-  /* Zone highlight (for p13n campaign zones) */
-  --zone-outline-color: #0070d2;
-  --zone-outline-active: 2px dashed var(--zone-outline-color);
+  /* ── Shadows ── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+
+  /* ── Legacy aliases (for JS compatibility) ── */
+  --color-primary:      var(--clr-accent);
+  --color-bg:           var(--clr-bg);
+  --color-surface:      var(--clr-surface);
+  --color-surface-2:    var(--clr-surface-2);
+  --color-border:       var(--clr-border);
+  --color-text:         var(--clr-text);
+  --color-text-muted:   var(--clr-text-2);
+  --color-header-bg:    var(--clr-bg);
+  --color-success:      var(--clr-accent);
+  --color-error:        var(--clr-accent-2);
+  --font-sans:          var(--font-body);
+  --header-height:      var(--header-h);
+  --radius-md:          6px;
+  --radius-lg:          12px;
+  --radius-full:        9999px;
+  --transition-fast:    120ms ease;
+  --transition-normal:  220ms ease;
+  --transition-slow:    380ms ease;
+  --max-width:          var(--container);
+  --text-xs:            0.75rem;
+  --text-sm:            0.8125rem;
+  --text-base:          1rem;
+  --text-lg:            1.125rem;
+  --text-xl:            1.25rem;
+  --text-2xl:           1.5rem;
+  --text-3xl:           1.875rem;
+  --text-4xl:           2.25rem;
+  --text-5xl:           3rem;
+  --font-bold:          700;
+  --font-medium:        500;
+  --font-semibold:      600;
 }

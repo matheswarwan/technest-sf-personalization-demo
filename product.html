@@ -11,8 +11,12 @@
   </script>
   <script async src="https://cdn.c360a.salesforce.com/beacon/c360a/70fd8ecb-183e-4b0e-b45e-f12d6b196939/scripts/c360a.min.js"></script>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -27,7 +31,7 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo">
         <div class="logo-mark">⚡</div>
-        <span class="logo-text">Tech<span>Nest</span></span>
+        <span class="logo-text">Tech<span class="logo-accent">Nest</span></span>
       </a>
       <nav class="primary-nav">
         <a href="index.html">Home</a>
@@ -42,7 +46,7 @@
       </div>
       <div class="header-actions">
         <span class="user-greeting" id="user-greeting"></span>
-        <a href="account.html" class="header-btn">
+        <a href="account.html" class="header-btn" title="My Account">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
@@ -76,9 +80,9 @@
       <div class="pdp-gallery">
         <div class="skeleton pdp-img-main" style="height:420px;"></div>
         <div style="display:flex;gap:var(--space-3);margin-top:var(--space-3)">
-          <div class="skeleton" style="height:80px;flex:1"></div>
-          <div class="skeleton" style="height:80px;flex:1"></div>
-          <div class="skeleton" style="height:80px;flex:1"></div>
+          <div class="skeleton" style="height:72px;flex:1"></div>
+          <div class="skeleton" style="height:72px;flex:1"></div>
+          <div class="skeleton" style="height:72px;flex:1"></div>
         </div>
       </div>
       <div class="pdp-info">
@@ -95,7 +99,10 @@
       <div data-p13n-zone="pdp-recs">
         <div class="recs-strip">
           <div class="recs-strip-header">
-            <h2 class="recs-strip-title">You May Also Like</h2>
+            <div>
+              <p class="section-label">Related</p>
+              <h2 class="recs-strip-title">You May Also Like</h2>
+            </div>
           </div>
           <div class="recs-grid" id="pdp-recs-grid">
             <div class="zone-loading">
@@ -111,11 +118,9 @@
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+    <div class="footer-bottom">
       <span>© 2025 TechNest</span>
-      <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:#3a4860;">
-        SF Personalization SDK demo — <a href="https://ssjs30.com" style="color:var(--color-primary)">ssjs30.com</a>
-      </span>
+      <span>SF Personalization SDK demo — <a href="https://ssjs30.com">ssjs30.com</a></span>
     </div>
   </div>
 </footer>

@@ -1,9 +1,17 @@
-/* ── Account layout ── */
+/* ============================================================
+   ACCOUNT PAGE — VOLT edition
+   ============================================================ */
+
+/* ── Layout ── */
 .account-layout {
-  max-width: 900px;
-  margin: var(--space-8) auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-8);
+  padding: var(--space-10) 0;
+  max-width: var(--container);
 }
 
+/* Fallback for single-column account layout */
 .account-panel {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,65 +20,173 @@
 
 .account-card { width: 100%; }
 
+/* ── Account Sidebar ── */
+.account-sidebar {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: sticky;
+  top: calc(var(--header-h) + 16px);
+}
+
+.account-avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--clr-accent-dim);
+  border: 2px solid rgba(180,255,60,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: var(--space-4);
+  flex-shrink: 0;
+}
+
+.account-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  color: var(--clr-text);
+  margin-bottom: 4px;
+}
+
+.account-email {
+  font-size: var(--text-sm);
+  color: var(--clr-text-2);
+  margin-bottom: var(--space-6);
+}
+
+.account-nav a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  color: var(--clr-text-2);
+  text-decoration: none;
+  transition: all var(--dur-fast);
+}
+
+.account-nav a:hover {
+  background: var(--clr-surface-2);
+  color: var(--clr-text);
+}
+
+.account-nav a.active {
+  background: var(--clr-accent-dim);
+  color: var(--clr-accent);
+}
+
+/* ── Account Main ── */
+.account-main {}
+
+.account-section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.account-section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  color: var(--clr-text);
+  margin-bottom: var(--space-5);
+}
+
 /* ── Profile display ── */
 .account-profile {
   display: flex;
   align-items: center;
   gap: var(--space-5);
   padding: var(--space-5);
-  background: var(--color-surface-2);
+  background: var(--clr-surface-2);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--clr-border);
+  margin-bottom: var(--space-5);
 }
 
 .profile-avatar {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--clr-accent-dim);
+  border: 2px solid rgba(180,255,60,0.25);
+  color: var(--clr-accent);
   font-size: var(--text-2xl);
-  font-weight: var(--font-bold);
+  font-weight: 800;
+  font-family: var(--font-display);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-/* ── SDK code preview ── */
-.code-preview {
-  background: #0d1117;
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
-  overflow-x: auto;
-  border: 1px solid rgba(255,255,255,.06);
+/* ── SDK event preview panel ── */
+.p13n-preview {
+  background: var(--clr-bg);
+  border: 1px solid rgba(180,255,60,0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
 }
 
-.code-preview code {
+.p13n-preview-title {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: #a8d8a8;
-  line-height: 1.7;
-  white-space: pre;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--clr-accent);
+  margin-bottom: var(--space-3);
 }
 
-/* ── SDK info card ── */
-.sdk-info-card .card-header {
-  background: #0d1117;
-  color: #a8d8a8;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  border-color: rgba(255,255,255,.06);
+.p13n-event-log {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--clr-text-2);
+  max-height: 300px;
+  overflow-y: auto;
 }
 
+.p13n-event-entry {
+  border-bottom: 1px solid var(--clr-border);
+  padding: 8px 0;
+}
+
+.p13n-event-entry:last-child { border-bottom: none; }
+
+.p13n-event-name { color: var(--clr-accent); font-weight: 700; }
+.p13n-event-time { color: var(--clr-text-3); float: right; }
+
+/* ── SDK info card (legacy class support) ── */
 .sdk-info-card.card {
-  border-color: rgba(255,255,255,.08);
-  background: #161b22;
-  color: #c9d1d9;
+  border-color: rgba(180,255,60,0.12);
+  background: var(--clr-surface);
+}
+
+.sdk-info-card .card-header {
+  background: var(--clr-bg);
+  color: var(--clr-accent);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-color: rgba(180,255,60,0.12);
+  font-family: var(--font-mono);
 }
 
 .sdk-info-card .card-body {
-  background: #161b22;
+  background: var(--clr-surface);
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* ── Form elements in account ── */
+.form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+.form-label { font-size: var(--text-sm); font-weight: 500; color: var(--clr-text); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .account-layout { grid-template-columns: 1fr; }
+  .account-sidebar { position: static; }
 }
 
 @media (max-width: 700px) {
