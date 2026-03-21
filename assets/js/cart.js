@@ -285,7 +285,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     updateCartBadge();
 
-    if (window.location.pathname.endsWith('cart.html')) {
+    const p = window.location.pathname;
+    if (p.endsWith('cart.html') || p.endsWith('/cart')) {
       renderCartPage();
     }
 

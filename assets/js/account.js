@@ -189,7 +189,8 @@
   // ─────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     updateGreeting();
-    if (window.location.pathname.endsWith('account.html')) {
+    const p = window.location.pathname;
+    if (p.endsWith('account.html') || p.endsWith('/account')) {
       renderAccountPage();
     }
   });

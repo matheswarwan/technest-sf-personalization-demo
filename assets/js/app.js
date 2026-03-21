@@ -14,13 +14,19 @@
 
   // ─────────────────────────────────────────────
   // Routing helper
+  // Supports both .html extensions (local) and clean URLs (Cloudflare Pages)
   // ─────────────────────────────────────────────
+  function matchPage(name) {
+    const p = location.pathname.replace(/\/$/, '');
+    return p.endsWith(name + '.html') || p.endsWith('/' + name) || p === '/' + name;
+  }
+
   const page = {
-    isHome:     () => location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '',
-    isCategory: () => location.pathname.endsWith('category.html'),
-    isProduct:  () => location.pathname.endsWith('product.html'),
-    isCart:     () => location.pathname.endsWith('cart.html'),
-    isAccount:  () => location.pathname.endsWith('account.html')
+    isHome:     () => location.pathname === '/' || location.pathname === '' || matchPage('index'),
+    isCategory: () => matchPage('category'),
+    isProduct:  () => matchPage('product'),
+    isCart:     () => matchPage('cart'),
+    isAccount:  () => matchPage('account')
   };
 
   const params = new URLSearchParams(location.search);

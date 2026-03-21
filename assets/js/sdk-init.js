@@ -97,8 +97,8 @@
         {
           name: 'home',
           isMatch: function () {
-            const path = window.location.pathname;
-            return path === '/' || path.endsWith('index.html') || path === '';
+            const p = window.location.pathname.replace(/\/$/, '');
+            return p === '' || p === '/' || p.endsWith('index.html') || p.endsWith('/index');
           },
           interaction: {
             name: 'Home : View'
@@ -109,7 +109,8 @@
         {
           name: 'category',
           isMatch: function () {
-            return window.location.pathname.endsWith('category.html');
+            const p = window.location.pathname;
+            return p.endsWith('category.html') || p.endsWith('/category');
           },
           interaction: {
             name: 'Category : View'
@@ -134,7 +135,8 @@
         {
           name: 'product',
           isMatch: function () {
-            return window.location.pathname.endsWith('product.html');
+            const p = window.location.pathname;
+            return p.endsWith('product.html') || p.endsWith('/product');
           },
           // Catalog event built dynamically once product data is loaded
           // App.js calls SalesforceInteractions.sendEvent() directly after loading
@@ -147,7 +149,8 @@
         {
           name: 'cart',
           isMatch: function () {
-            return window.location.pathname.endsWith('cart.html');
+            const p = window.location.pathname;
+            return p.endsWith('cart.html') || p.endsWith('/cart');
           },
           interaction: {
             name: 'Cart : View'
@@ -158,7 +161,8 @@
         {
           name: 'account',
           isMatch: function () {
-            return window.location.pathname.endsWith('account.html');
+            const p = window.location.pathname;
+            return p.endsWith('account.html') || p.endsWith('/account');
           },
           interaction: {
             name: 'Account : View'
