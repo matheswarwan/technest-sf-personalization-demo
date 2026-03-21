@@ -1,0 +1,7 @@
+# Cloudflare Pages configuration
+# This file is optional — Cloudflare Pages auto-detects static sites.
+# No build command needed (pure static HTML/CSS/JS).
+
+[build]
+  command = ""
+  output_directory = "/"
