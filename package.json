@@ -1,0 +1,12 @@
+{
+  "name": "ssjs30-website",
+  "version": "1.0.0",
+  "description": "A realistic electronics retail site built to **demo, develop, and test** Salesforce Personalization (formerly Evergage / Interaction Studio) Web SDK integrations. Every customer journey — browse, product view, cart, checkout, identity — fires the appropriate SF Personalization event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
