@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — TechNest</title>
+
+  <!-- SF Personalization Beacon -->
+  <script>
+    var _SalesforceInteractions = window.SalesforceInteractions = window.SalesforceInteractions || {};
+    _SalesforceInteractions.q = _SalesforceInteractions.q || [];
+  </script>
+  <!-- <script async src="https://cdn.c360a.salesforce.com/beacon/c360a/[DATASET-ID]/scripts/c360a.min.js"></script> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/zones.css">
+  <link rel="stylesheet" href="assets/css/pages/category.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <div class="logo-mark">⚡</div>
+        <span class="logo-text">Tech<span>Nest</span></span>
+      </a>
+      <nav class="primary-nav">
+        <a href="index.html">Home</a>
+        <a href="category.html?cat=laptops" id="nav-laptops">Laptops</a>
+        <a href="category.html?cat=phones" id="nav-phones">Phones</a>
+        <a href="category.html?cat=accessories" id="nav-accessories">Accessories</a>
+        <a href="category.html?cat=deals" id="nav-deals">Deals</a>
+      </nav>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search products…" id="search-input">
+      </div>
+      <div class="header-actions">
+        <span class="user-greeting" id="user-greeting"></span>
+        <a href="account.html" class="header-btn" title="My Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+        <a href="cart.html" class="header-btn" title="Cart" id="cart-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page-main">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" id="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current" id="breadcrumb-current">All Products</span>
+    </nav>
+
+    <div class="page-with-sidebar">
+      <!-- ── FILTER SIDEBAR ── -->
+      <aside class="filter-sidebar">
+        <div class="filter-group">
+          <h3 class="filter-title">Category</h3>
+          <ul class="filter-list" id="category-filter">
+            <li><label class="filter-option"><input type="radio" name="category" value="all" checked> All</label></li>
+            <li><label class="filter-option"><input type="radio" name="category" value="laptops"> Laptops</label></li>
+            <li><label class="filter-option"><input type="radio" name="category" value="phones"> Phones</label></li>
+            <li><label class="filter-option"><input type="radio" name="category" value="accessories"> Accessories</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-title">Price Range</h3>
+          <div class="price-range">
+            <input type="range" id="price-max" min="0" max="2500" value="2500" step="50" class="range-input">
+            <div class="price-labels">
+              <span>$0</span>
+              <span id="price-max-label">$2,500+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-title">Sub-category</h3>
+          <ul class="filter-list" id="subcategory-filter">
+            <!-- Populated dynamically -->
+          </ul>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-title">Rating</h3>
+          <ul class="filter-list">
+            <li><label class="filter-option"><input type="radio" name="rating" value="0" checked> Any</label></li>
+            <li><label class="filter-option"><input type="radio" name="rating" value="4.5"> ⭐ 4.5+</label></li>
+            <li><label class="filter-option"><input type="radio" name="rating" value="4"> ⭐ 4.0+</label></li>
+          </ul>
+        </div>
+
+        <button class="btn btn-ghost btn-full" id="clear-filters">Clear All Filters</button>
+      </aside>
+
+      <!-- ── PRODUCT LISTING ── -->
+      <div class="listing-area">
+        <div class="listing-header">
+          <div class="listing-count" id="listing-count">Loading…</div>
+          <div class="listing-controls">
+            <select class="form-input sort-select" id="sort-select" style="padding:var(--space-2) var(--space-4);width:auto;">
+              <option value="default">Sort: Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="name">Name A–Z</option>
+            </select>
+            <div class="view-toggle">
+              <button class="btn btn-icon active" id="grid-view" title="Grid view">▦</button>
+              <button class="btn btn-icon" id="list-view" title="List view">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-listing">
+          <!-- Populated by app.js -->
+          <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2025 TechNest</span>
+      <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:#3a4860;">
+        SF Personalization SDK demo — <a href="https://ssjs30.com" style="color:var(--color-primary)">ssjs30.com</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script src="assets/js/sdk-init.js" defer></script>
+<script src="assets/js/cart.js" defer></script>
+<script src="assets/js/account.js" defer></script>
+<script src="assets/js/p13n-zones.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

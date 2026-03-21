@@ -1,0 +1,205 @@
+/* ============================================================
+   CAMPAIGN ZONES — Salesforce Personalization campaign slots
+   ============================================================ */
+
+/* Base zone styles */
+[data-p13n-zone] {
+  position: relative;
+  transition: outline var(--transition-fast);
+}
+
+/* When debug mode is active (body has .p13n-debug), show zone outlines */
+.p13n-debug [data-p13n-zone] {
+  outline: var(--zone-outline-active);
+  outline-offset: 2px;
+}
+
+.p13n-debug [data-p13n-zone]::before {
+  content: attr(data-p13n-zone);
+  position: absolute;
+  top: -22px;
+  left: 0;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  z-index: 10;
+  line-height: 1.5;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Zone: hero-banner */
+[data-p13n-zone="hero-banner"] {
+  width: 100%;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Zone: homepage-recs */
+[data-p13n-zone="homepage-recs"] {
+  padding: var(--space-4) 0;
+}
+
+/* Zone: pdp-recs */
+[data-p13n-zone="pdp-recs"] {
+  padding: var(--space-4) 0;
+}
+
+/* Zone: cart-promo */
+[data-p13n-zone="cart-promo"] {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Zone: exit-intent (rendered as overlay) */
+[data-p13n-zone="exit-intent"] {
+  display: none; /* shown by JS */
+}
+
+/* ── Hero Banner (default fallback) ── */
+.hero-banner {
+  min-height: 480px;
+  background: linear-gradient(135deg, #0a0e1a 0%, #0d1b3e 50%, #0a2060 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(0,112,210,.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(255,107,53,.12) 0%, transparent 50%);
+}
+
+.hero-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 580px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(0,112,210,.2);
+  border: 1px solid rgba(0,112,210,.4);
+  color: #80b8f8;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-title {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(90deg, #0070d2, #3da5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,.65);
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero-img {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 480px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* ── Promo Banner (cart-promo fallback) ── */
+.promo-banner {
+  background: linear-gradient(135deg, #0d1b3e, #0a2060);
+  color: #fff;
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.promo-banner h4 { font-size: var(--text-base); margin-bottom: var(--space-1); }
+.promo-banner p  { font-size: var(--text-sm); color: rgba(255,255,255,.7); }
+
+/* ── Recommendation strip ── */
+.recs-strip {
+  padding: var(--space-6) 0;
+}
+
+.recs-strip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+
+.recs-strip-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+.recs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 1024px) { .recs-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .recs-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── Zone loading state ── */
+.zone-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  gap: var(--space-3);
+}
+
+.zone-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

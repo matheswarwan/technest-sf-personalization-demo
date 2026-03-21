@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNest — Premium Electronics</title>
+  <meta name="description" content="Shop the latest laptops, phones, and accessories at TechNest.">
+
+  <!-- SF Personalization Beacon (replace [DATASET-ID] and [ORG-ID]) -->
+  <script>
+    var _SalesforceInteractions = window.SalesforceInteractions = window.SalesforceInteractions || {};
+    _SalesforceInteractions.q = _SalesforceInteractions.q || [];
+  </script>
+  <!-- <script async src="https://cdn.c360a.salesforce.com/beacon/c360a/[DATASET-ID]/scripts/c360a.min.js"></script> -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/zones.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     SITE HEADER
+════════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <div class="logo-mark">⚡</div>
+        <span class="logo-text">Tech<span>Nest</span></span>
+      </a>
+
+      <nav class="primary-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="category.html?cat=laptops">Laptops</a>
+        <a href="category.html?cat=phones">Phones</a>
+        <a href="category.html?cat=accessories">Accessories</a>
+        <a href="category.html?cat=deals">Deals</a>
+      </nav>
+
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search products…" id="search-input">
+      </div>
+
+      <div class="header-actions">
+        <span class="user-greeting" id="user-greeting"></span>
+        <a href="account.html" class="header-btn" title="My Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+        <a href="cart.html" class="header-btn" title="Cart" id="cart-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════ -->
+<main class="page-main">
+
+  <!-- ── HERO BANNER — Campaign Zone ── -->
+  <div data-p13n-zone="hero-banner">
+    <div class="hero-banner">
+      <div class="container" style="position:relative;z-index:1;width:100%;">
+        <div class="hero-banner-content">
+          <div class="hero-tag">🚀 Just Arrived</div>
+          <h1 class="hero-title">
+            The Future of Tech<br>
+            <em>Starts Here</em>
+          </h1>
+          <p class="hero-subtitle">
+            Explore our latest collection of laptops, phones, and accessories — curated for those who demand the best.
+          </p>
+          <div class="hero-actions">
+            <a href="category.html?cat=laptops" class="btn btn-primary btn-lg">Shop Laptops</a>
+            <a href="category.html?cat=phones" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff;">View Phones</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CATEGORY TILES ── -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="category-tiles">
+        <a href="category.html?cat=laptops" class="category-tile" data-category="laptops">
+          <div class="category-tile-icon">💻</div>
+          <div class="category-tile-info">
+            <h3>Laptops</h3>
+            <span>24 products</span>
+          </div>
+          <span class="category-tile-arrow">→</span>
+        </a>
+        <a href="category.html?cat=phones" class="category-tile" data-category="phones">
+          <div class="category-tile-icon">📱</div>
+          <div class="category-tile-info">
+            <h3>Phones</h3>
+            <span>18 products</span>
+          </div>
+          <span class="category-tile-arrow">→</span>
+        </a>
+        <a href="category.html?cat=accessories" class="category-tile" data-category="accessories">
+          <div class="category-tile-icon">🎧</div>
+          <div class="category-tile-info">
+            <h3>Accessories</h3>
+            <span>42 products</span>
+          </div>
+          <span class="category-tile-arrow">→</span>
+        </a>
+        <a href="category.html?cat=deals" class="category-tile category-tile-accent" data-category="deals">
+          <div class="category-tile-icon">⚡</div>
+          <div class="category-tile-info">
+            <h3>Today's Deals</h3>
+            <span>Up to 30% off</span>
+          </div>
+          <span class="category-tile-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURED PRODUCTS ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Products</h2>
+        <a href="category.html" class="section-link">View all →</a>
+      </div>
+      <div class="product-grid" id="featured-products">
+        <!-- Populated by app.js -->
+        <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+        <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+        <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+        <div class="skeleton" style="height:340px;border-radius:var(--radius-lg)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PERSONALIZED RECOMMENDATIONS — Campaign Zone ── -->
+  <section class="section" style="background:var(--color-surface-2);">
+    <div class="container">
+      <div data-p13n-zone="homepage-recs">
+        <div class="recs-strip">
+          <div class="recs-strip-header">
+            <h2 class="recs-strip-title">Recommended for You</h2>
+            <a href="category.html" class="section-link">View all →</a>
+          </div>
+          <div class="recs-grid" id="homepage-recs-grid">
+            <!-- Populated by p13n-zones.js (campaign response) or fallback by app.js -->
+            <div class="zone-loading">
+              <div class="zone-spinner"></div>
+              Loading recommendations…
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUE PROPS STRIP ── -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="value-props">
+        <div class="value-prop">
+          <div class="value-prop-icon">🚚</div>
+          <div>
+            <h4>Free Shipping</h4>
+            <p>On orders over $50</p>
+          </div>
+        </div>
+        <div class="value-prop">
+          <div class="value-prop-icon">🔄</div>
+          <div>
+            <h4>30-Day Returns</h4>
+            <p>Hassle-free returns</p>
+          </div>
+        </div>
+        <div class="value-prop">
+          <div class="value-prop-icon">🛡️</div>
+          <div>
+            <h4>2-Year Warranty</h4>
+            <p>On all electronics</p>
+          </div>
+        </div>
+        <div class="value-prop">
+          <div class="value-prop-icon">💬</div>
+          <div>
+            <h4>24/7 Support</h4>
+            <p>We're always here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <div class="logo-mark">⚡</div>
+          <span class="logo-text" style="font-size:var(--text-lg)">Tech<span>Nest</span></span>
+        </a>
+        <p>Your destination for premium tech. We carry only the products we'd buy ourselves.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="category.html?cat=laptops">Laptops</a></li>
+          <li><a href="category.html?cat=phones">Phones</a></li>
+          <li><a href="category.html?cat=accessories">Accessories</a></li>
+          <li><a href="category.html?cat=deals">Deals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="account.html">Sign In</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+          <li><a href="#">Order History</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 TechNest. All rights reserved.</span>
+      <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:#3a4860;">
+        SF Personalization SDK demo — <a href="https://ssjs30.com" style="color:var(--color-primary)">ssjs30.com</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- JS -->
+<script src="assets/js/sdk-init.js" defer></script>
+<script src="assets/js/cart.js" defer></script>
+<script src="assets/js/account.js" defer></script>
+<script src="assets/js/p13n-zones.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+
+</body>
+</html>
